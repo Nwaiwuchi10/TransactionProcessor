@@ -76,15 +76,11 @@ const TransactionProcessor = () => {
 
   const submitTransaction = async () => {
     try {
-      await axios.post(
-        "https://transaction-reconcilation-task-o3m16vayf-nwaiwuchi10s-projects.vercel.app/trans",
-        tx,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      await axios.post(`${Base_Url}/trans`, tx, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       setMessage("Transaction processed successfully.");
     } catch (err: any) {
       setMessage("Error processing transaction: " + err.message);
